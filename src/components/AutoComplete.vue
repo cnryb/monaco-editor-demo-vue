@@ -21,6 +21,7 @@ export default {
     initEditor () {
       monaco.languages.registerCompletionItemProvider('json', {
         triggerCharacters: ['！', '!'],
+        // eslint-disable-next-line
         provideCompletionItems: (model, position, context, token) => {
           const inputChar = model.getLineContent(position.lineNumber)[position.column - 2]
           console.log(inputChar)
