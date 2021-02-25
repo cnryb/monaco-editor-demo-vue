@@ -1,21 +1,37 @@
 <template>
   <div id="app">
-    <DiffEditor class="editor"  :originalValue="diff.original" :modifiedValue="diff.modifield" />
+    <SimpleEditor v-if="showSimple" class="editor" :editorOptions="editorOptions"/>
+    <DiffEditor v-if="showDiff"   :originalValue="diff.original" :modifiedValue="diff.modifield" />
+
   </div>
 </template>
 
 <script>
 import DiffEditor from "./components/DiffEditor.vue";
+import SimpleEditor from "./components/SimpleEditor.vue"
 
 export default {
   name: 'App',
   components: {
-    DiffEditor
+    DiffEditor,
+    SimpleEditor
   },
   data(){
     return {
+      showSimple:true,
+      showDiff:false,
+
+      editorOptions: {
+        language: 'csharp',
+        value: 'string str = "hello world";',
+        contextmenu: false, // 右键菜单
+        scrollBeyondLastLine: false,
+        minimap: {
+          enabled: false,
+        },
+      },
       diff:{
-        original:`好言难得，恶语易施
+        modifield:`好言难得，恶语易施
 一言既出，驷马难追
 .
 
@@ -28,7 +44,7 @@ ho
 ha
 
 !`,
-        modifield:`好言难得，恶语易施
+        original:`好言难得，恶语易施
 君子一言，快马一鞭
 !
 
@@ -54,5 +70,8 @@ ho
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   margin-top: 60px;
+}
+.editor{
+  height: 200px;
 }
 </style>
