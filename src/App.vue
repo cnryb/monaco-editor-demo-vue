@@ -3,7 +3,8 @@
     <SimpleEditor v-if="showSimple" class="editor" :editorOptions="editorOptions"/>
     <DiffEditor v-if="showDiff"   :originalValue="diff.original" :modifiedValue="diff.modifield" />
     <Colorize />
-    <CustomLanguageColorize />
+    <!-- <CustomLanguageColorize /> -->
+    <AutoComplete />
   </div>
 </template>
 
@@ -12,6 +13,7 @@ import DiffEditor from "./components/DiffEditor.vue";
 import SimpleEditor from "./components/SimpleEditor.vue"
 import Colorize from "./components/Colorize.vue"
 import CustomLanguageColorize from "./components/CustomLanguageColorize.vue"
+import AutoComplete from "./components/AutoComplete.vue"
 
 export default {
   name: 'App',
@@ -19,7 +21,8 @@ export default {
     DiffEditor,
     SimpleEditor,
     Colorize,
-    CustomLanguageColorize
+    CustomLanguageColorize,
+    AutoComplete
   },
   data(){
     return {
