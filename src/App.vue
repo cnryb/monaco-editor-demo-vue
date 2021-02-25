@@ -3,6 +3,7 @@
     <SimpleEditor v-if="showSimple" class="editor" :editorOptions="editorOptions"/>
     <DiffEditor v-if="showDiff"   :originalValue="diff.original" :modifiedValue="diff.modifield" />
     <Colorize />
+    <CustomLanguageColorize />
   </div>
 </template>
 
@@ -10,13 +11,15 @@
 import DiffEditor from "./components/DiffEditor.vue";
 import SimpleEditor from "./components/SimpleEditor.vue"
 import Colorize from "./components/Colorize.vue"
+import CustomLanguageColorize from "./components/CustomLanguageColorize.vue"
 
 export default {
   name: 'App',
   components: {
     DiffEditor,
     SimpleEditor,
-    Colorize
+    Colorize,
+    CustomLanguageColorize
   },
   data(){
     return {
