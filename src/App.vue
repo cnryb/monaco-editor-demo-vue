@@ -5,6 +5,7 @@
     <Colorize />
     <!-- <CustomLanguageColorize /> -->
     <AutoComplete />
+    <Hover />
   </div>
 </template>
 
@@ -14,6 +15,7 @@ import SimpleEditor from "./components/SimpleEditor.vue"
 import Colorize from "./components/Colorize.vue"
 import CustomLanguageColorize from "./components/CustomLanguageColorize.vue"
 import AutoComplete from "./components/AutoComplete.vue"
+import Hover from "./components/Hover.vue"
 
 export default {
   name: 'App',
@@ -22,7 +24,8 @@ export default {
     SimpleEditor,
     Colorize,
     CustomLanguageColorize,
-    AutoComplete
+    AutoComplete,
+    Hover
   },
   data(){
     return {
