@@ -2,19 +2,21 @@
   <div id="app">
     <SimpleEditor v-if="showSimple" class="editor" :editorOptions="editorOptions"/>
     <DiffEditor v-if="showDiff"   :originalValue="diff.original" :modifiedValue="diff.modifield" />
-
+    <Colorize />
   </div>
 </template>
 
 <script>
 import DiffEditor from "./components/DiffEditor.vue";
 import SimpleEditor from "./components/SimpleEditor.vue"
+import Colorize from "./components/Colorize.vue"
 
 export default {
   name: 'App',
   components: {
     DiffEditor,
-    SimpleEditor
+    SimpleEditor,
+    Colorize
   },
   data(){
     return {
