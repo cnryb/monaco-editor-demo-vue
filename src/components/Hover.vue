@@ -19,7 +19,6 @@ export default {
   },
   methods: {
     initEditor () {
-      debugger
       monaco.languages.registerHoverProvider('json', {
         provideHover (model, position) {
           const lineStr = model.getLineContent(position.lineNumber)

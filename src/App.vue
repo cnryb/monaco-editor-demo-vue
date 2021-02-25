@@ -1,11 +1,14 @@
 <template>
   <div id="app">
-    <SimpleEditor v-if="showSimple" class="editor" :editorOptions="editorOptions"/>
-    <DiffEditor v-if="showDiff"   :originalValue="diff.original" :modifiedValue="diff.modifield" />
-    <Colorize />
-    <!-- <CustomLanguageColorize /> -->
-    <AutoComplete />
-    <Hover />
+    <div class="nav">
+      <button v-for="n in navs" :key="n.title" @click="show(n.component)">{{n.title}}</button>
+    </div>
+    <SimpleEditor v-if="showObj.SimpleEditor" class="editor" :editorOptions="editorOptions"/>
+    <DiffEditor v-if="showObj.DiffEditor"   :originalValue="diff.original" :modifiedValue="diff.modifield" />
+    <Colorize v-if="showObj.Colorize" />
+    <CustomLanguageColorize v-if="showObj.CustomLanguageColorize" />
+    <AutoComplete v-if="showObj.AutoComplete" />
+    <Hover v-if="showObj.Hover" />
   </div>
 </template>
 
@@ -29,9 +32,27 @@ export default {
   },
   data(){
     return {
-      showSimple:true,
-      showDiff:false,
-
+      navs:[{
+        title:'简单用法',
+        component:'SimpleEditor'
+      },{
+        title:'差异对比',
+        component:'DiffEditor'
+      },{
+        title:'简单着色',
+        component:'Colorize'
+      },{
+        title:'自定义语言着色',
+        component:'CustomLanguageColorize'
+      },{
+        title:'代码提示',
+        component:'AutoComplete'
+      },{
+        title:'悬停提示',
+        component:'Hover'
+      }],
+      showObj:{
+      },
       editorOptions: {
         language: 'csharp',
         value: 'string str = "hello world";',
@@ -70,6 +91,15 @@ ho
 !`
       }
     }
+  },
+  methods:{
+    show(component){
+      Object.keys(this.showObj).forEach(key=>{
+        this.showObj[key]=false
+      })
+      this.showObj[component] = true
+      this.$forceUpdate()
+    }
   }
 }
 </script>
@@ -80,7 +110,13 @@ ho
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 10px;
+}
+.nav{
+  margin-bottom: 15px;
+}
+.nav button{
+  margin-right: 10px;
 }
 .editor{
   height: 200px;
