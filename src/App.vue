@@ -9,6 +9,7 @@
     <CustomLanguageColorize v-if="showObj.CustomLanguageColorize" />
     <AutoComplete v-if="showObj.AutoComplete" />
     <Hover v-if="showObj.Hover" />
+    <Mark class="editor" v-if="showObj.Marker" />
   </div>
 </template>
 
@@ -19,6 +20,7 @@ import Colorize from "./components/Colorize.vue"
 import CustomLanguageColorize from "./components/CustomLanguageColorize.vue"
 import AutoComplete from "./components/AutoComplete.vue"
 import Hover from "./components/Hover.vue"
+import Mark from "./components/Marker.vue"
 
 export default {
   name: 'App',
@@ -28,7 +30,8 @@ export default {
     Colorize,
     CustomLanguageColorize,
     AutoComplete,
-    Hover
+    Hover,
+    Mark
   },
   data(){
     return {
@@ -50,6 +53,9 @@ export default {
       },{
         title:'悬停提示',
         component:'Hover'
+      },{
+        title:'语法校验',
+        component:'Marker'
       }],
       showObj:{
       },
