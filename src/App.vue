@@ -9,7 +9,7 @@
     <CustomLanguageColorize v-if="showObj.CustomLanguageColorize" />
     <AutoComplete v-if="showObj.AutoComplete" />
     <Hover v-if="showObj.Hover" />
-    <Mark class="editor" v-if="showObj.Marker" />
+    <Mark v-if="showObj.Marker" />
   </div>
 </template>
 
