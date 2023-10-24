@@ -10,6 +10,7 @@
     <AutoComplete v-if="showObj.AutoComplete" />
     <Hover v-if="showObj.Hover" />
     <Mark v-if="showObj.Marker" />
+    <SelectLine v-if="showObj.SelectLine" />
   </div>
 </template>
 
@@ -21,6 +22,7 @@ import CustomLanguageColorize from "./components/CustomLanguageColorize.vue"
 import AutoComplete from "./components/AutoComplete.vue"
 import Hover from "./components/Hover.vue"
 import Mark from "./components/Marker.vue"
+import SelectLine from "./components/SelectLine.vue"
 
 export default {
   name: 'App',
@@ -31,7 +33,8 @@ export default {
     CustomLanguageColorize,
     AutoComplete,
     Hover,
-    Mark
+    Mark,
+    SelectLine
   },
   data(){
     return {
@@ -56,6 +59,9 @@ export default {
       },{
         title:'语法校验',
         component:'Marker'
+      },{
+        title:'选中指定行',
+        component:'SelectLine'
       }],
       showObj:{
       },
